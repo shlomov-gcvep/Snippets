@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>FOR-Schleifen-Snippet</Title>
+         <Text>for</Text>
+         <Shortcut>For</Shortcut>
+         <Shortcut>FOR</Shortcut>
+         <Shortcut>for</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für for-Schleife</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+            <SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>counter</ID>
+               <ToolTip>Counter variable, has to be declared</ToolTip>
+               <Default>counter</Default>
+            </Literal>
+            <Literal>
+               <ID>start</ID>
+               <ToolTip>start value for counter</ToolTip>
+               <Default>start</Default>
+            </Literal>
+            <Literal>
+               <ID>stop</ID>
+               <ToolTip>value for loop to stop</ToolTip>
+               <Default>stop</Default>
+            </Literal>
+            <Literal>
+               <ID>step</ID>
+               <ToolTip>step width for counter</ToolTip>
+               <Default>1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[FOR $counter$ = $start$ TO $stop$ STEP $step$
+$selection$$end$
+ENDFOR]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Rückwärts FOR-Schleifen-Snippet</Title>
+         <Text>forr</Text>
+         <Shortcut>Forr</Shortcut>
+         <Shortcut>FORR</Shortcut>
+         <Shortcut>forr</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine for-Schleife die rückwärts durchlaufen wird</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+            <SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>counter</ID>
+               <ToolTip>Counter variable, has to be declared</ToolTip>
+               <Default>counter</Default>
+            </Literal>
+            <Literal>
+               <ID>start</ID>
+               <ToolTip>start value for counter</ToolTip>
+               <Default>maxValue</Default>
+            </Literal>
+            <Literal>
+               <ID>stop</ID>
+               <ToolTip>value for loop to stop</ToolTip>
+               <Default>stop</Default>
+            </Literal>
+            <Literal>
+               <ID>step</ID>
+               <ToolTip>step width for counter</ToolTip>
+               <Default>-1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[FOR $counter$ = $start$ TO $stop$ STEP $step$
+$selection$$end$
+ENDFOR]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Switch-Case - Snippet</Title>
+         <Text>switchCase</Text>
+         <Shortcut>switchcase</Shortcut>
+         <Shortcut>SwitchCase</Shortcut>
+         <Shortcut>SWITCHCASE</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für switch-case-Block</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>condition</ID>
+               <ToolTip>Expression to switch from</ToolTip>
+               <Default>nButton</Default>
+               <Macro Type="Activation">SuggestEnumVariable</Macro>
+            </Literal>
+            <Literal>
+               <ID>value1</ID>
+               <ToolTip>result of expression</ToolTip>
+               <Default>value1</Default>
+            </Literal>
+            <Literal>
+               <ID>value2</ID>
+               <ToolTip>result of expression</ToolTip>
+               <Default>value2</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[SWITCH $condition$
+   CASE $value1$
+      
+   CASE $value2$
+   $end$
+   DEFAULT
+      
+	  
+ENDSWITCH]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+
+</CodeSnippets>

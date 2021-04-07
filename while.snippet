@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>While-Snippet</Title>
+         <Text>while</Text>
+         <Shortcut>while</Shortcut>
+         <Shortcut>While</Shortcut>
+         <Shortcut>WHILE</Shortcut>
+         <Shortcut>while</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für while-Schleife</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+            <SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>TRUE</Default>
+               <Macro Type="Activation">SuggestVariable($BOOL$)</Macro>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[WHILE $expression$ 
+  $end$$selection$
+ENDWHILE]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

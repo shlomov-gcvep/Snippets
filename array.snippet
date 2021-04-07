@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Array declaration snippet</Title>
+         <Text>array</Text>
+         <Shortcut>array</Shortcut>
+         <Shortcut>ARRAY</Shortcut>
+         <Shortcut>Array</Shortcut>
+         <Extensions>.dat</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Codeausschnitt zum erzeugen eines arrays</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>type</ID>
+               <ToolTip>Typ des arrays</ToolTip>
+               <Default>INT</Default>
+               <Macro Type="Activation">SuggestType</Macro>
+            </Literal>
+            
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>NAME</Default>
+            </Literal>
+
+            <Literal>
+               <ID>count</ID>
+               <ToolTip>Größe des arrays</ToolTip>
+               <Default>0</Default>
+               <Macro Type="Activation">CreateArrayInit</Macro>
+               <Macro Type="Conversion">CreateArrayInit</Macro>
+            </Literal>
+            
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[DECL $type$ $name$[$count$]$end$
+$name$ $count$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

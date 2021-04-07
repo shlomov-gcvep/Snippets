@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Inline) - Snippet</Title>
+         <Text>ptpi</Text> 
+         <Shortcut>ptpi</Shortcut>
+         <Shortcut>Ptpi</Shortcut>
+         <Shortcut>PTPI</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine PTP-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer ptp-Bewegung gefahren werden soll</ToolTip>
+               <Default>P1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[;FOLD PTP $point$ Vel=100 % PDAT$point$ Tool[0] Base[0];%{PE}%R 8.2.10,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:P$point$, 3:, 5:100, 7:PDAT$point$
+   $BWDSTART=FALSE
+   PDAT_ACT=PPDAT$point$
+   FDAT_ACT=F$point$
+   BAS(#PTP_PARAMS,100)
+   PTP X$point$ 
+;ENDFOLD
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Relative) - Snippet</Title>
+         <Text>ptprel</Text>
+         <Shortcut>ptprel</Shortcut>
+         <Shortcut>Ptprel</Shortcut>
+         <Shortcut>PTPREL</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine relative PTP-Bewegung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>x</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+            <Literal>
+               <ID>y</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+            <Literal>
+               <ID>z</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[PTP_REL{X $x$, Y $y$, Z $z$}$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Cont) - Snippet</Title>
+         <Text>ptpco</Text>
+         <Shortcut>PTPCo</Shortcut>
+         <Shortcut>Ptpco</Shortcut>
+         <Shortcut>ptpco</Shortcut>
+         <Shortcut>PTPCONT</Shortcut>
+         <Shortcut>Ptpcont</Shortcut>
+         <Shortcut>ptpcont</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine PTP-Bewegung mit Überschleifen</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+         
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>targetpoint of movement</ToolTip>
+               <Default>P1</Default>
+            </Literal>
+            <Literal>
+               <ID>contType</ID>
+               <ToolTip>the type of the cont</ToolTip>
+               <Default>C_PTP</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL"><![CDATA[PTP $point$ $contType$$end$]]></Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Kartesisch) - Snippet</Title>
+         <Text>ptpca</Text>
+         <Shortcut>Ptpca</Shortcut>
+         <Shortcut>ptpca</Shortcut>
+         <Shortcut>PTPCA</Shortcut>
+         <Shortcut>Ptpcart</Shortcut>
+         <Shortcut>ptpcart</Shortcut>
+         <Shortcut>PTPCART</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine kartesische PTP-Bewegung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>coord1</ID>
+               <ToolTip>coordinate</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>coord2</ID>
+               <ToolTip>coordinate</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>coord3</ID>
+               <ToolTip>coordinate</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>rot1</ID>
+               <ToolTip>rotation</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>rot2</ID>
+               <ToolTip>rotation</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>rot3</ID>
+               <ToolTip>rotation</ToolTip>
+               <Default>0</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL"><![CDATA[PTP {X $coord1$,Y $coord2$,Z $coord3$,A $rot1$,B $rot2$,C $rot3$}$end$]]></Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Axis) - Snippet</Title>
+         <Text>ptpa</Text>
+         <Shortcut>ptpa</Shortcut>
+         <Shortcut>Ptpa</Shortcut>
+         <Shortcut>PTPA</Shortcut>
+         <Shortcut>ptpaxis</Shortcut>
+         <Shortcut>Ptpaxis</Shortcut>
+         <Shortcut>PTPAXIS</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine achsspezifische PTP-Bewegung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>axis1</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>axis2</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>axis3</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>axis4</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>axis5</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+            <Literal>
+               <ID>axis6</ID>
+               <ToolTip>axis in degrees</ToolTip>
+               <Default>0</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL"><![CDATA[PTP {A1 $axis1$,A2 $axis2$,A3 $axis3$,A4 $axis4$,A5 $axis5$,A6 $axis6$}$end$]]></Code>
+      </Snippet>
+   </CodeSnippet>
+
+</CodeSnippets>

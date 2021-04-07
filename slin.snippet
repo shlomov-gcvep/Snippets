@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>SLIN(Inline) - Snippet</Title>
+         <Text>slini</Text>
+         <Shortcut>slini</Shortcut>
+         <Shortcut>Slini</Shortcut>
+         <Shortcut>SLINI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine SLIN-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SLIN-Bewegung gefahren werden soll</ToolTip>
+               <Default>P1</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Punkt zu dem in einer SLIN-Bewegung gefahren werden soll</ToolTip>
+               <Default>CPDAT1</Default>
+            </Literal>
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
+         <!--<Macro Type="Completion">
+         <![CDATA[
+public void Execute(IInsertionContext context, Snippet snippet)
+{
+   var editor = context.GetService<TextEditor>() as KrlEditor;
+   if (editor == null)
+      return;
+
+   var refactoringManager = context.GetService<IRefactoringManager>();
+   if (refactoringManager == null)
+      return;
+
+   var module = editor.KrlModelManager.GetModule(editor.FilePath);
+   if (!module.HasDatFile())
+      return;
+
+   var changes = CreateChanges(snippet, module);
+   if (changes.Any())
+      refactoringManager.MakeChanges(changes, true, true);
+}
+
+private IList<ChangeBase> CreateChanges(Snippet snippet, IKrlModule module)
+{
+   var changes = new List<ChangeBase>();
+   var line = module.DeclarationList.EndDat.Line - 1;
+
+   var pointName = snippet.GetElementValue("point");
+   if (string.IsNullOrEmpty(pointName))
+      return changes;
+
+   var internalPointName = string.Format("X{0}", pointName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalPointName))
+   {
+      var pointDeclaration = string.Format("DECL E6POS {0}={1}", internalPointName, BaseDataType.E6Pos.GetDefaultValue());
+      changes.Add(new InsertLineChange(module.DatPath, line, pointDeclaration, true));
+   }
+
+   var fdatName = snippet.GetElementValue("fdat", pointName);
+   var internalfdatName = string.Format("F{0}", fdatName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalfdatName))
+   {
+      var fdat = string.Format("DECL FDAT {0}={{TOOL_NO 0,BASE_NO 0,IPO_FRAME #BASE,POINT2[] \" \"}}", internalfdatName);
+      changes.Insert(0, new InsertLineChange(module.DatPath, line, fdat, true));
+   }
+
+   var ldatName = snippet.GetElementValue("ldat", pointName);
+   var internalLdatName = string.Format("L{0}", ldatName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalLdatName))
+   {
+      var pdat =
+         string.Format(
+            "DECL LDAT {0}={{ ACC 100.000,APO_DIST 100.000,APO_FAC 50.0000,AXIS_VEL 100.000,AXIS_ACC 100.000,ORI_TYP #VAR,CIRC_TYP #BASE,JERK_FAC 50.0000,GEAR_JERK 50.0000,EXAX_IGN 0}}",
+            internalLdatName);
+      changes.Insert(0, new InsertLineChange(module.DatPath, line, pdat, true));
+   }
+
+   return changes;
+}
+      ]]>
+         </Macro>-->
+         <Code Language="KRL">
+            <![CDATA[;FOLD SLIN $point$ Vel=2 m/s $ldat$ Tool[1]:Toolo Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=2; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SLIN
+;ENDFOLD
+SLIN X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BASE = SBASE(F$point$.BASE_NO), $IPO_MODE = SIPO_MODE(F$point$.IPO_FRAME), $LOAD = SLOAD(F$point$.TOOL_NO), $ACC = SACC_CP(L$ldat$), $ORI_TYPE = SORI_TYP(L$ldat$), $APO = SAPO(L$ldat$), $JERK = SJERK(L$ldat$), $COLLMON_TOL_PRO[1] = USE_CM_PRO_VALUES(0)
+;ENDFOLD
+]]></Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

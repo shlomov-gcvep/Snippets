@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>WaitSec-Snippet</Title>
+         <Text>wsec</Text>
+         <Shortcut>wsec</Shortcut>
+         <Shortcut>Wsec</Shortcut>
+         <Shortcut>WSEC</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für ein zeitbezogene Wartebedingung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>time</ID>
+               <ToolTip>Zeit in Sekunden</ToolTip>
+               <Default>5</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[WAIT SEC $time$$selection$ $end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>WaitFor-Snippet</Title>
+         <Text>wfor</Text>
+         <Shortcut>wfor</Shortcut>
+         <Shortcut>Wfor</Shortcut>
+         <Shortcut>WFOR</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für ein triggerbezogene Wartebedingung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Wartebedingung</ToolTip>
+               <Default>TRUE</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[WAIT FOR $expression$ $end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+</CodeSnippets>

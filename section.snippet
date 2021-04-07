@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         
+         <!--Is displayed as header in the static ToolTip(on the right side) of the completion window-->
+         <Title>Ini-Section</Title>
+         
+         <!--Is displayed in the completion window-->
+         <Text>sec</Text>
+         
+         <!--These shortcuts can be used-->
+         <Shortcut>Sec</Shortcut>
+         <Shortcut>sec</Shortcut>
+         <Shortcut>SEC</Shortcut>
+
+         <!--For these file extensions the snippet will be shown -->
+         <Extensions>.ini</Extensions>
+
+         <!--Is displayed as description in the static ToolTip(on the right side) of the completion window-->
+         <Description>Codeausschnitt für eine section in einer ini Datei</Description>
+         
+         <!--Is displayed as author in the static ToolTip(on the right side) of the completion window-->
+         <Author>Kuka Roboter GmbH</Author>
+
+         <!--Specifies the type of the snippet-->
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Name der Section</ToolTip>
+               <Default>Name</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="Ini">
+            <![CDATA[[$name$]
+			$selection$$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.2">
+      <Header>
+         <Title>Program-Snippet</Title>
+         <Text>program</Text>
+         <Shortcut>Prog</Shortcut>
+         <Shortcut>PROG</Shortcut>
+         <Shortcut>prog</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>FileRoot</Scope>
+         <Description>Code snippet to create a program</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Name of the program</ToolTip>
+               <Default>Programm</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[;*******************************************
+;*******************************************
+DEF $name$$selection$ ()
+	;FOLD Declarations ;%{PE}
+	
+	;ENDFOLD (Declarations)
+	
+	;FOLD INIT ;%{PE}
+	
+	;ENDFOLD (INIT)
+	
+	;FOLD Implementation ;%{PE}
+	
+	;ENDFOLD (Implementation)
+	
+   $end$
+END ;($name$)]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.2">
+      <Header>
+         <Title>Function-Snippet</Title>
+         <Text>function</Text>
+         <Shortcut>Func</Shortcut>
+         <Shortcut>FUNC</Shortcut>
+         <Shortcut>func</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Description>Code snippet to create a function with no parameters</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>returnType</ID>
+               <ToolTip>Type of return value</ToolTip>
+               <Default>BOOL</Default>
+               <Macro Type="Activation">SuggestType</Macro>
+            </Literal>
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Name of the program</ToolTip>
+               <Default>Function</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[;*******************************************
+;*******************************************
+DEFFCT $returnType$$selection$ $name$$selection$ ()
+	;FOLD Declarations ;%{PE}
+	
+	;ENDFOLD (Declarations)
+	
+	;FOLD INIT ;%{PE}
+	
+	;ENDFOLD (INIT)
+	
+	;FOLD Implementation ;%{PE}
+	
+	;ENDFOLD (Implementation)
+   $end$
+   RETURN TODO
+ENDFCT ;($name$)]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.2">
+      <Header>
+         <Title>FOLD-Snippet</Title>
+         <Text>FOLD</Text>
+         <Shortcut>FOLD</Shortcut>
+         <Shortcut>Fold</Shortcut>
+         <Shortcut>fold</Shortcut>
+         <Extensions>.src .sub .dat</Extensions>
+         <Description>;FOLD ;ENDFOLD</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+			<SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Name of FOLD</ToolTip>
+               <Default>text</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[;FOLD $name$  ;%{PE}
+$selection$$end$
+;ENDFOLD ($name$)]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+
+   
+</CodeSnippets>

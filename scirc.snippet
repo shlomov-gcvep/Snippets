@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>SCIRC(Inline) - Snippet</Title>
+         <Text>scirc</Text> 
+         <Shortcut>scirc</Shortcut>
+         <Shortcut>Scirc</Shortcut>
+         <Shortcut>SCIRC</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine SCIRC-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>helpPoint</ID>
+               <ToolTip>Hilfspunkt der für eine SCIRC-Bewegung benötigt wird</ToolTip>
+               <Default>P1</Default>
+            </Literal>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SCIRC-Bewegung gefahren werden soll</ToolTip>
+               <Default>P2</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Daten zu Punkt</ToolTip>
+               <Default>CPDAT1</Default>
+            </Literal>
+         </Declarations>
+         
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD SCIRC $helpPoint$ $point$ Vel=2 m/s $ldat$ Tool[0] Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.HelpPointName=$helpPoint$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=2; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SCIRC
+;ENDFOLD
+SCIRC X$helpPoint$, X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BASE = SBASE(F$point$.BASE_NO), $IPO_MODE = SIPO_MODE(F$point$.IPO_FRAME), $LOAD = SLOAD(F$point$.TOOL_NO), $ACC = SACC_CP(L$ldat$), $ORI_TYPE = SORI_TYP(L$ldat$), $CIRC_TYPE = SCIRC_TYP(L$ldat$), $APO = SAPO(L$ldat$), $CIRC_MODE = SCIRC_M(L$ldat$), $JERK = SJERK(L$ldat$), $COLLMON_TOL_PRO[1] = USE_CM_PRO_VALUES(0)
+;ENDFOLD$end$
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

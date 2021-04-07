@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Interrupt-Snippet</Title>
+         <Text>interrupt</Text>
+         <Shortcut>interrupt</Shortcut>
+         <Shortcut>Interrupt</Shortcut>
+         <Shortcut>INTERRUPT</Shortcut>
+         <Extensions>.src .sub .dat</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Codeausschnitt für eine Interrupt Vereinbarung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>priority</ID>
+               <ToolTip>Die Priorität des Interrupts</ToolTip>
+               <Default>21</Default>
+            </Literal>
+            <Literal>
+               <ID>condition</ID>
+               <ToolTip>Die Bedingung für die der Interrupt ausgelöst werden soll</ToolTip>
+               <Default>$IN[1] == TRUE</Default>
+            </Literal>
+            <Literal>
+               <ID>call</ID>
+               <ToolTip>Die aunzurufende Funktion</ToolTip>
+               <Default>ir_OnInterrupt</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[INTERRUPT DECL $priority$ WHEN $condition$ DO $call$()$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

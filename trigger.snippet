@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Trigger(Distance)-Snippet</Title>
+         <Text>trigger (Distance)</Text>
+         <Shortcut>trigdist</Shortcut>
+         <Shortcut>Trigdist</Shortcut>
+         <Shortcut>TRIGDIST</Shortcut>
+         <Shortcut>trgd</Shortcut>
+         <Shortcut>Trgd</Shortcut>
+         <Shortcut>TRGD</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine Trigger-Distance Anweisung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>switchpoint</ID>
+               <ToolTip>switch on startpoint (0) or endpoint (1)</ToolTip>
+               <Default>switchpoint</Default>
+            </Literal>
+            <Literal>
+               <ID>time</ID>
+               <ToolTip>delay in milliseconds</ToolTip>
+               <Default>time</Default>
+            </Literal>
+            <Literal>
+               <ID>instruction</ID>
+               <ToolTip>value assignment, out instruction or subroutine call</ToolTip>
+               <Default>instruction</Default>
+            </Literal>
+            <Literal>
+               <ID>prio</ID>
+               <ToolTip>priority for subfunction, optiomal, 1..39, 81..128 or -1 for selfdefined prio</ToolTip>
+               <Default>prio</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL"><![CDATA[TRIGGER WHEN DISTANCE = $switchpoint$ DELAY = $time$ DO $instruction$ PRIO = $prio$]]></Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Trigger(Path) - Snippet</Title>
+         <Text>trigger (Path)</Text>
+         <Shortcut>trigpath</Shortcut>
+         <Shortcut>Trigpath</Shortcut>
+         <Shortcut>TRIGPATH</Shortcut>
+         <Shortcut>tgpt</Shortcut>
+         <Shortcut>Tgpt</Shortcut>
+         <Shortcut>TGPT</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine Trigger-Path Anweisung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>distance</ID>
+               <ToolTip>distance from target point</ToolTip>
+               <Default>distance</Default>
+            </Literal>
+            <Literal>
+               <ID>time</ID>
+               <ToolTip>delay in milliseconds</ToolTip>
+               <Default>time</Default>
+            </Literal>
+            <Literal>
+               <ID>instruction</ID>
+               <ToolTip>value assignment, out instruction or subroutine call</ToolTip>
+               <Default>instruction</Default>
+            </Literal>
+            <Literal>
+               <ID>prio</ID>
+               <ToolTip>priority for subfunction, optiomal, 1..39, 81..128 or -1 for selfdefined prio</ToolTip>
+               <Default>prio</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL"><![CDATA[TRIGGER WHEN PATH = $distance$ DELAY = $time$ DO $instruction$ PRIO = $prio$]]></Code>
+      </Snippet>
+   </CodeSnippet>
+   
+</CodeSnippets>

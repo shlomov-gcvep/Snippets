@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>LIN(Inline) - Snippet</Title>
+         <Text>lini</Text>
+         <Shortcut>lini</Shortcut>
+         <Shortcut>lini</Shortcut>
+         <Shortcut>LINI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>LIN-Bewegung</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>LIN-simple</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>LIN-Bewegung</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>2.00</Default>
+            </Literal>
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
+         <Code Language="KRL">
+		 
+            <![CDATA[;FOLD LIN $point$ Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.3.43,%MKUKATPBASIS,%CMOVE,%VLIN,%P 1:LIN, 2:$point$, 3:, 5:$Vel$, 7:$ldat$
+$BWDSTART=FALSE
+LDAT_ACT=L$ldat$
+FDAT_ACT=F$point$
+BAS(#CP_PARAMS,$Vel$)
+LIN X$point$ 
+;ENDFOLD$end$
+]]></Code>
+      </Snippet>
+   </CodeSnippet>
+   
+   
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>LIN_CONT(Inline) - Snippet</Title>
+         <Text>lini_cont</Text>
+         <Shortcut>lini_cont</Shortcut>
+         <Shortcut>lini_cont</Shortcut>
+         <Shortcut>LINI_CONT</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>LIN_cont-Bewegung</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>LIN-Bewegung</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>LIN-Bewegung</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>2.00</Default>
+            </Literal>
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
+         <Code Language="KRL">
+		 
+            <![CDATA[;FOLD LIN $point$ CONT Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.3.43,%MKUKATPBASIS,%CMOVE,%VLIN,%P 1:LIN, 2:$point$, 3:C_DIS C_DIS, 5:$Vel$, 7:$ldat$
+$BWDSTART=FALSE
+LDAT_ACT=L$ldat$
+FDAT_ACT=F$point$
+BAS(#CP_PARAMS,$Vel$)
+LIN X$point$ C_DIS C_DIS
+;ENDFOLD$end$
+]]></Code>
+      </Snippet>
+   </CodeSnippet>   
+   
+   
+    <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>SLIN(Inline) - Snippet</Title>
+         <Text>slini</Text>
+         <Shortcut>slini</Shortcut>
+         <Shortcut>Slini</Shortcut>
+         <Shortcut>SLINI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine SLIN-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SLIN-Bewegung gefahren werden soll</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Punkt zu dem in einer SLIN-Bewegung gefahren werden soll</ToolTip>
+               <Default>cpdat1</Default>
+            </Literal>
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
+         <!--<Macro Type="Completion">
+         <![CDATA[
+public void Execute(IInsertionContext context, Snippet snippet)
+{
+   var editor = context.GetService<TextEditor>() as KrlEditor;
+   if (editor == null)
+      return;
+
+   var refactoringManager = context.GetService<IRefactoringManager>();
+   if (refactoringManager == null)
+      return;
+
+   var module = editor.KrlModelManager.GetModule(editor.FilePath);
+   if (!module.HasDatFile())
+      return;
+
+   var changes = CreateChanges(snippet, module);
+   if (changes.Any())
+      refactoringManager.MakeChanges(changes, true, true);
+}
+
+private IList<ChangeBase> CreateChanges(Snippet snippet, IKrlModule module)
+{
+   var changes = new List<ChangeBase>();
+   var line = module.DeclarationList.EndDat.Line - 1;
+
+   var pointName = snippet.GetElementValue("point");
+   if (string.IsNullOrEmpty(pointName))
+      return changes;
+
+   var internalPointName = string.Format("X{0}", pointName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalPointName))
+   {
+      var pointDeclaration = string.Format("DECL E6POS {0}={1}", internalPointName, BaseDataType.E6Pos.GetDefaultValue());
+      changes.Add(new InsertLineChange(module.DatPath, line, pointDeclaration, true));
+   }
+
+   var fdatName = snippet.GetElementValue("fdat", pointName);
+   var internalfdatName = string.Format("F{0}", fdatName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalfdatName))
+   {
+      var fdat = string.Format("DECL FDAT {0}={{TOOL_NO 0,BASE_NO 0,IPO_FRAME #BASE,POINT2[] \" \"}}", internalfdatName);
+      changes.Insert(0, new InsertLineChange(module.DatPath, line, fdat, true));
+   }
+
+   var ldatName = snippet.GetElementValue("ldat", pointName);
+   var internalLdatName = string.Format("L{0}", ldatName);
+   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalLdatName))
+   {
+      var pdat =
+         string.Format(
+            "DECL LDAT {0}={{ ACC 100.000,APO_DIST 100.000,APO_FAC 50.0000,AXIS_VEL 100.000,AXIS_ACC 100.000,ORI_TYP #VAR,CIRC_TYP #BASE,JERK_FAC 50.0000,GEAR_JERK 50.0000,EXAX_IGN 0}}",
+            internalLdatName);
+      changes.Insert(0, new InsertLineChange(module.DatPath, line, pdat, true));
+   }
+
+   return changes;
+}
+      ]]>
+         </Macro>-->
+         <Code Language="KRL">
+            <![CDATA[;FOLD SLIN $point$ Vel=2 m/s $ldat$ Tool[1]:Toolo Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=2; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SLIN
+;ENDFOLD
+SLIN X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BASE = SBASE(F$point$.BASE_NO), $IPO_MODE = SIPO_MODE(F$point$.IPO_FRAME), $LOAD = SLOAD(F$point$.TOOL_NO), $ACC = SACC_CP(L$ldat$), $ORI_TYPE = SORI_TYP(L$ldat$), $APO = SAPO(L$ldat$), $JERK = SJERK(L$ldat$), $COLLMON_TOL_PRO[1] = USE_CM_PRO_VALUES(0)
+;ENDFOLD$end$
+]]></Code>
+      </Snippet>
+   </CodeSnippet>  
+   
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>SCIRC(Inline) - Snippet</Title>
+         <Text>scirc</Text> 
+         <Shortcut>scirc</Shortcut>
+         <Shortcut>Scirc</Shortcut>
+         <Shortcut>SCIRC</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine SCIRC-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>helpPoint</ID>
+               <ToolTip>Hilfspunkt der für eine SCIRC-Bewegung benötigt wird</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SCIRC-Bewegung gefahren werden soll</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Daten zu Punkt</ToolTip>
+               <Default>cpdat1</Default>
+            </Literal>
+         </Declarations>
+         
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD SCIRC $helpPoint$ $point$ Vel=2 m/s $ldat$ Tool[0] Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.HelpPointName=$helpPoint$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=2; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SCIRC
+;ENDFOLD
+SCIRC X$helpPoint$, X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BASE = SBASE(F$point$.BASE_NO), $IPO_MODE = SIPO_MODE(F$point$.IPO_FRAME), $LOAD = SLOAD(F$point$.TOOL_NO), $ACC = SACC_CP(L$ldat$), $ORI_TYPE = SORI_TYP(L$ldat$), $CIRC_TYPE = SCIRC_TYP(L$ldat$), $APO = SAPO(L$ldat$), $CIRC_MODE = SCIRC_M(L$ldat$), $JERK = SJERK(L$ldat$), $COLLMON_TOL_PRO[1] = USE_CM_PRO_VALUES(0)
+;ENDFOLD$end$
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+   
+    <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>CIRC(Inline) - Snippet</Title>
+         <Text>circi</Text> 
+         <Shortcut>circi</Shortcut>
+         <Shortcut>Circi</Shortcut>
+         <Shortcut>CIRCI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>CIRC-formulyar</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>helpPoint</ID>
+               <ToolTip>Hilfspunkt der für eine SCIRC-Bewegung benötigt wird</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SCIRC-Bewegung gefahren werden soll</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Daten zu Punkt</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+			<Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>2.00</Default>
+            </Literal>
+         </Declarations>
+         
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD CIRC $helpPoint$ $point$  Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.2.17,%MKUKATPBASIS,%CMOVE,%VCIRC,%P 1:CIRC, 2:$helpPoint$, 3:$point$, 4:, 6:$Vel$, 8:$ldat$
+$BWDSTART=FALSE
+LDAT_ACT=L$ldat$
+FDAT_ACT=F$point$
+BAS(#CP_PARAMS,$Vel$)
+CIRC X$helpPoint$, X$point$ 
+;ENDFOLD$end$
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+   
+   
+     <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>CIRC_CONT(Inline) - Snippet</Title>
+         <Text>circi_cont</Text> 
+         <Shortcut>circi_cont</Shortcut>
+         <Shortcut>Circi_cont</Shortcut>
+         <Shortcut>CIRCI_CONT</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>CIRC cont-formulyar</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>helpPoint</ID>
+               <ToolTip>Hilfspunkt der für eine SCIRC-Bewegung benötigt wird</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SCIRC-Bewegung gefahren werden soll</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Daten zu Punkt</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+			<Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>2.00</Default>
+            </Literal>
+         </Declarations>
+         
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD CIRC $helpPoint$ $point$ CONT Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.2.17,%MKUKATPBASIS,%CMOVE,%VCIRC,%P 1:CIRC, 2:$helpPoint$, 3:$point$, 4:C_DIS C_DIS, 6:$Vel$, 8:$ldat$
+$BWDSTART=FALSE
+LDAT_ACT=L$ldat$
+FDAT_ACT=F$point$
+BAS(#CP_PARAMS,$Vel$)
+CIRC X$helpPoint$, X$point$ C_DIS C_DIS 
+;ENDFOLD$end$
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>  
+         
+
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Inline) - Snippet</Title>
+         <Text>ptpi</Text> 
+         <Shortcut>ptpi</Shortcut>
+         <Shortcut>Ptpi</Shortcut>
+         <Shortcut>PTPI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Code snippet for PTP traffic that can be edited using the built-in form</Description>
+         <Author>Spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>The point to move to in the ptp movement</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>pdat</ID>
+               <ToolTip>PDAT to the specified point</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>100</Default>
+            </Literal>			
+			
+			
+			
+			
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreatePtpData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD PTP $point$ Vel=$Vel$ % $pdat$ Tool[0] Base[0];%{PE}%R 8.2.10,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:$point$, 3:, 5:$Vel$, 7:$pdat$
+   $BWDSTART=FALSE
+   PDAT_ACT=P$pdat$
+   FDAT_ACT=F$point$
+   BAS(#PTP_PARAMS,$Vel$)
+   PTP X$point$ 
+	;ENDFOLD$end$
+	]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+
+
+  <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Inline) - Snippet</Title>
+         <Text>ptpi_cont</Text> 
+         <Shortcut>ptpi_cont</Shortcut>
+         <Shortcut>Ptpi_cont</Shortcut>
+         <Shortcut>PTPI_CONT</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Code snippet for PTP CONT traffic that can be edited using the built-in form</Description>
+         <Author>spizjeno WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>The point to move to in the ptp cont movement</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>pdat</ID>
+               <ToolTip>PDAT to the specified point</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>100</Default>
+            </Literal>			
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreatePtpData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD PTP $point$ CONT Vel=$Vel$ % $pdat$ Tool[0] Base[0];%{PE}%R 8.2.10,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:$point$, 3:C_DIS, 5:$Vel$, 7:$pdat$
+   $BWDSTART=FALSE
+   PDAT_ACT=P$pdat$
+   FDAT_ACT=F$point$
+   BAS(#PTP_PARAMS,$Vel$)
+   PTP X$point$ C_DIS 
+	;ENDFOLD$end$
+	]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>PTP(Relative) - Snippet</Title>
+         <Text>ptprel</Text>
+         <Shortcut>ptprel</Shortcut>
+         <Shortcut>Ptprel</Shortcut>
+         <Shortcut>PTPREL</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für eine relative PTP-Bewegung</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>x</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+            <Literal>
+               <ID>y</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+            <Literal>
+               <ID>z</ID>
+               <ToolTip></ToolTip>
+               <Default>0</Default>
+            </Literal>
+
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[PTP_REL{X $x$, Y $y$, Z $z$}$end$ ;#TOOL]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+
+   
+</CodeSnippets>

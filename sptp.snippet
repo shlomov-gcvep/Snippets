@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>SPTP(Inline) - Snippet</Title>
+         <Text>sptpi</Text>
+         <Shortcut>sptpi</Shortcut>
+         <Shortcut>Sptpi</Shortcut>
+         <Shortcut>SPTPI</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Code snippet for an SPTP movement that can be edited by an inline form</Description>
+         <Author>Filed under Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Point to be driven in an sptp movement</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>pdat</ID>
+               <ToolTip>PDAT to the specified point</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+         </Declarations>
+
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreatePtpData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD SPTP $point$ Vel=100 % $pdat$ Tool[0] Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataPtpName=$pdat$; Kuka.VelocityPtp=100; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SPTP
+;ENDFOLD
+SPTP X$point$ WITH $VEL_AXIS[1] = SVEL_JOINT(100.0), $TOOL = STOOL2(F$point$), $BASE = SBASE(F$point$.BASE_NO), $IPO_MODE = SIPO_MODE(F$point$.IPO_FRAME), $LOAD = SLOAD(F$point$.TOOL_NO), $ACC_AXIS[1] = SACC_JOINT(P$pdat$), $APO = SAPO_PTP(P$pdat$), $GEAR_JERK[1] = SGEAR_JERK(P$pdat$), $COLLMON_TOL_PRO[1] = USE_CM_PRO_VALUES(0)
+;ENDFOLD
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

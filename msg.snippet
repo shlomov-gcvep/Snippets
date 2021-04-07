@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>dialog-Snippet</Title>
+         <Text>dialog</Text>
+         <Shortcut>dialog</Shortcut>
+         <Shortcut>Dialog</Shortcut>
+         <Shortcut>DIALOG</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Dialog menu</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>kay</ID>
+               <ToolTip>kay</ToolTip>
+               <Default>"WGS"</Default>
+            </Literal>		 
+            <Literal>
+               <ID>No</ID>
+               <ToolTip>Nomer</ToolTip>
+               <Default>777</Default>
+            </Literal>			 
+            <Literal>
+               <ID>text</ID>
+               <ToolTip>text</ToolTip>
+               <Default>"Text_mes"</Default>
+            </Literal>
+            <Literal>
+               <ID>button</ID>
+               <ToolTip>button</ToolTip>
+               <Default>"ok"</Default>
+            </Literal>
+			<Literal>
+               <ID>intvar</ID>
+               <ToolTip>intvar</ToolTip>
+               <Default>int_var</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[$intvar$ = Mes_Menu($kay$, $No$, $text$, $button$, , , , , , ); Nom 1-99$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+   
+   <CodeSnippet Format="1.1.0">
+      <Header>
+         <Title>dialog_list-Snippet</Title>
+         <Text>dialog_list</Text>
+         <Shortcut>dialog_list</Shortcut>
+         <Shortcut>Dialog_List</Shortcut>
+         <Shortcut>DIALOG_LIST</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Dialog menu list</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+			<SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations> 
+            <Literal>
+               <ID>No</ID>
+               <ToolTip>Nomer</ToolTip>
+               <Default>0</Default>
+            </Literal>
+			<Literal>
+               <ID>intvar</ID>
+               <ToolTip>intvar</ToolTip>
+               <Default>int_var</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	;FOLD Mes Rus Dialog List ($No$)
+		;$selection$
+			$intvar$ = Mes_Rus_Dialog_List($No$); Nom 401-500$end$
+	;ENDFOLD (FOLD Mes Rus Dialog List ($No$))$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>   
+   
+   <CodeSnippet Format="1.1.0">
+      <Header>
+         <Title>message-Snippet</Title>
+         <Text>message</Text>
+         <Shortcut>message</Shortcut>
+         <Shortcut>Message</Shortcut>
+         <Shortcut>MESSAGE</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>message</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>kay</ID>
+               <ToolTip>kay</ToolTip>
+               <Default>"WGS"</Default>
+            </Literal>		 
+            <Literal>
+               <ID>No</ID>
+               <ToolTip>Nomer</ToolTip>
+               <Default>777</Default>
+            </Literal>			 
+            <Literal>
+               <ID>text</ID>
+               <ToolTip>text</ToolTip>
+               <Default>"Text_mes"</Default>
+            </Literal>
+            <Literal>
+               <ID>tip</ID>
+               <ToolTip>tip</ToolTip>
+               <Default>#NOTIFY</Default>
+            </Literal>
+			<Literal>
+               <ID>nhandle</ID>
+               <ToolTip>nhandle</ToolTip>
+               <Default>nHandle</Default>
+            </Literal>
+			<Literal>
+               <ID>rPar_In</ID>
+               <ToolTip>rPar_In</ToolTip>
+               <Default>0.00</Default>
+            </Literal>			
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	Mes_Rus_hendl($kay$, $No$, $text$, $tip$, $nhandle$, $rPar_In$, , ) 
+	;FOLD Comment
+		;1-50 #QUIT_STOP 2 PLC, 51-100 #QUIT 2 PLC, 101-127 #STATE 2 PLC, 128-200 #STATE, 201-300 #NOTIFY, 301-400 #WAITING, 401-500 Dialog, 501-550 #QUIT, 551-600;$end$
+	;ENDFOLD (Comment)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>   
+   
+   
+    <CodeSnippet Format="1.1.0">
+      <Header>
+         <Title>message_list-Snippet</Title>
+         <Text>message_list</Text>
+         <Shortcut>message_list</Shortcut>
+         <Shortcut>Message_List</Shortcut>
+         <Shortcut>MESSAGE_LIST</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>message_list</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+			<SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>		 
+            <Literal>
+               <ID>No</ID>
+               <ToolTip>Nomer</ToolTip>
+               <Default>777</Default>
+            </Literal>			 
+            <Literal>
+               <ID>tip</ID>
+               <ToolTip>tip</ToolTip>
+               <Default>#NOTIFY</Default>
+            </Literal>
+		
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	;FOLD Mes Rus List ($No$, $tip$)
+		;$selection$
+		Mes_Rus_list ($No$, $tip$) 
+		;FOLD Comment ;%{PE} ;1-50 #QUIT_STOP 2 PLC, 51-100 #QUIT 2 PLC, 101-127 #STATE 2 PLC, 128-200 #STATE, 201-300 #NOTIFY, 301-400 #WAITING, 401-500 Dialog, 501-550 #QUIT, 551-600;		
+		;ENDFOLD (Comment) $end$
+	;ENDFOLD (Mes_Rus_list ($No$, $tip$))$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>     
+   
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>DelMessage-Snippet</Title>
+         <Text>delmessage</Text>
+         <Shortcut>delmessage</Shortcut>
+         <Shortcut>DelMessage</Shortcut>
+         <Shortcut>DELMESSAGE</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>delmessage</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+			<Literal>
+               <ID>nhandle</ID>
+               <ToolTip>nhandle</ToolTip>
+               <Default>nHandle</Default>
+            </Literal>		
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	DelMesHendle($nhandle$)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>    
+   
+   
+   
+</CodeSnippets>

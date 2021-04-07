@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Signal(In)-Snippet</Title>
+         <Text>sigin</Text>
+         <Shortcut>sigin</Shortcut>
+         <Shortcut>Sigin</Shortcut>
+         <Shortcut>SIGIN</Shortcut>
+         <Extensions>.src .sub .dat</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Codeausschnitt für eine Signalvereinbarung für digitale Eingänge</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+            <Literal>
+               <ID>beginIndex</ID>
+               <ToolTip>Startindex</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+            <Literal>
+               <ID>endIndex</ID>
+               <ToolTip>Endindex</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[SIGNAL $expression$ $IN[$beginIndex$] TO $IN[$endIndex$] $end$$selection$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Signal(Out)-Snippet</Title>
+         <Text>sigout</Text>
+         <Shortcut>sigout</Shortcut>
+         <Shortcut>Sigout</Shortcut>
+         <Shortcut>SIGOUT</Shortcut>
+         <Extensions>.src .sub .dat</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Codeausschnitt für eine Signalvereinbarung für digitale Ausgänge</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+            <Literal>
+               <ID>beginIndex</ID>
+               <ToolTip>Startindex</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+            <Literal>
+               <ID>endIndex</ID>
+               <ToolTip>Endindex</ToolTip>
+               <Default>variable</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[SIGNAL $expression$ $OUT[$beginIndex$] TO $OUT[$endIndex$] $end$$selection$$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet> 
+</CodeSnippets>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         
+         <!--Is displayed as header in the static ToolTip(on the right side) of the completion window-->
+         <Title>If-Snippet</Title>
+         
+         <!--Is displayed in the completion window-->
+         <Text>if</Text>
+         
+         <!--These shortcuts can be used-->
+         <Shortcut>if</Shortcut>
+         <Shortcut>IF</Shortcut>
+         <Shortcut>If</Shortcut>
+
+         <!--For these file extensions the snippet will be shown -->
+         <Extensions>.src .sub</Extensions>
+
+         <!--Scope name where the snipped is valid, at the moment possible values for a KrlEditor are: FileRoot, InFunction -->
+         <Scope>InFunction</Scope>
+         
+         <!--Is displayed as description in the static ToolTip(on the right side) of the completion window-->
+         <Description>Codeausschnitt für if-Anweisung</Description>
+         
+         <!--Is displayed as author in the static ToolTip(on the right side) of the completion window-->
+         <Author>Kuka Roboter GmbH</Author>
+
+         <!--Specifies the type of the snippet-->
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+            <SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>true</Default>
+               <Macro Type="Activation">SuggestVariable($BOOL$)</Macro>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[IF $expression$ THEN
+ $end$$selection$
+ENDIF]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

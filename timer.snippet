@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Timer-Snippet</Title>
+         <Text>timer</Text>
+         <Shortcut>timer</Shortcut>
+         <Shortcut>Timer</Shortcut>
+         <Shortcut>TIMER</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Codeausschnitt für das starten eines Timers</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>timerIndex</ID>
+               <ToolTip>Der Index des zu startendes Timers</ToolTip>
+               <Default>1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[WAIT SEC 0
+$TIMER_STOP[$timerIndex$] = FALSE$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+   
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>TimerOFF_ON-Snippet</Title>
+         <Text>timerOFF_ON_on</Text>
+         <Shortcut>timeroff_on</Shortcut>
+         <Shortcut>Timeroff_on</Shortcut>
+         <Shortcut>TIMEROFF_ON</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Timer TOF ON</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>timerIndex</ID>
+               <ToolTip>Der Index des zu startendes Timers</ToolTip>
+               <Default>1</Default>
+            </Literal>
+			<Literal>
+               <ID>time</ID>
+               <ToolTip>Time</ToolTip>
+               <Default>1000</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	TimerOFF_ON($timerIndex$, $time$)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>   
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>TimerON-Snippet</Title>
+         <Text>timerON_on</Text>
+         <Shortcut>timeron</Shortcut>
+         <Shortcut>Timeron</Shortcut>
+         <Shortcut>TIMERON</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Timer TOF ON</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>timerIndex</ID>
+               <ToolTip>Der Index des zu startendes Timers</ToolTip>
+               <Default>1</Default>
+            </Literal>
+			<Literal>
+               <ID>time</ID>
+               <ToolTip>Time</ToolTip>
+               <Default>1000</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	TimerON($timerIndex$, $time$)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>   
+
+   
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>TimerOFF_OFF-Snippet</Title>
+         <Text>timerOFF_OFF</Text>
+         <Shortcut>timeroff_off</Shortcut>
+         <Shortcut>TimerOff_Off</Shortcut>
+         <Shortcut>TIMEROFF_OFF</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Timer TOF OFF</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>timerIndex</ID>
+               <ToolTip>Der Index des zu startendes Timers</ToolTip>
+               <Default>1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	TimerOFF_OFF($timerIndex$)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>      
+   
+    <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Timer_OFF-Snippet</Title>
+         <Text>timer_OFF</Text>
+         <Shortcut>timer_off</Shortcut>
+         <Shortcut>Timer_Off</Shortcut>
+         <Shortcut>TIMER_OFF</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction InDeclarationList</Scope>
+         <Description>Timer TON OFF</Description>
+         <Author>WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>timerIndex</ID>
+               <ToolTip>Der Index des zu startendes Timers</ToolTip>
+               <Default>1</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[	Timer_OFF($timerIndex$)$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>    
+   
+
+   
+</CodeSnippets>

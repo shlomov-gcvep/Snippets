@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Tag-Snippet</Title>
+         <Text><![CDATA[<Tag></Tag>]]></Text>
+         <Shortcut><![CDATA[<]]></Shortcut>
+         <Shortcut>tag</Shortcut>
+         <Extensions>.xml .config .kxr</Extensions>
+         <Scope>Content</Scope>
+         <Description>Codeausschnitt ein Xml Tag</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>tagName</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>name</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="Xml">
+            <![CDATA[<$tagName$></$tagName$>]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Comment-Snippet</Title>
+         <Text><![CDATA[<!-- Kommentar -->]]></Text>
+         <Shortcut><![CDATA[<!]]></Shortcut>
+         <Shortcut>com</Shortcut>
+         <Extensions>.xml .config .kxr</Extensions>
+         <Scope>Content</Scope>
+         <Description>Codeausschnitt ein Xml-Kommentar</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>comment</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>Comment</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="Xml">
+            <![CDATA[<!-- $comment$ -->]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Attribute-Snippet</Title>
+         <Text>Attribute</Text>
+         
+         <Shortcut>Attribute</Shortcut>
+         <Shortcut>attribute</Shortcut>
+         <Shortcut>att</Shortcut>
+         <Shortcut>Att</Shortcut>
+         
+         <Extensions>.xml .config .kxr</Extensions>
+         <Scope>Attribute</Scope>
+         
+         <Description>Codeausschnitt ein Attribut</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>name</ID>
+               <ToolTip>Name des Attributs</ToolTip>
+               <Default>name</Default>
+            </Literal>      
+            <Literal>
+               <ID>value</ID>
+               <ToolTip>Wert des Attributs</ToolTip>
+               <Default>value</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="Xml">
+            <![CDATA[$name$="$value$"]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Schema-Snippet</Title>
+         <Text>Schema Attribute</Text>
+         <Shortcut>schema</Shortcut>
+         <Shortcut>xsi</Shortcut>
+         <Extensions>.xml .config .kxr</Extensions>
+         <Scope>Attribute</Scope>
+         <Description>Codeausschnitt ein das Attribut um ein Schema anzugeben</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>schemaNameOrPath</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>SchemaNameOrPath</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="Xml">
+            <![CDATA[xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$schemaNameOrPath$.xsd"]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>
+   
+

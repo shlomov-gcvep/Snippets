@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Repeat-Snippet</Title>
+         <Text>repeat</Text>
+         <Shortcut>repeat</Shortcut>
+         <Shortcut>Repeat</Shortcut>
+         <Shortcut>REPEAT</Shortcut>
+         <Shortcut>rept</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für repeat-Schleife</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+            <SnippetType>SurroundsWith</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>expression</ID>
+               <ToolTip>Auszuwertender Ausdruck</ToolTip>
+               <Default>TRUE</Default>
+               <Macro Type="Activation">SuggestVariable($BOOL$)</Macro>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[REPEAT
+   $end$$selection$
+UNTIL $expression$ 
+]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>

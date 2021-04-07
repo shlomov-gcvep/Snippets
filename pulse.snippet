@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>Pulse-Snippet</Title>
+         <Text>pulse</Text>
+         <Shortcut>pse</Shortcut>
+         <Shortcut>Pse</Shortcut>
+         <Shortcut>PSE</Shortcut>
+         <Shortcut>PULSE</Shortcut>
+         <Shortcut>Pulse</Shortcut>
+         <Shortcut>pulse</Shortcut>
+         <Extensions>.src .sub</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>Codeausschnitt für Impulsausgänge</Description>
+         <Author>Kuka Roboter GmbH</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>output</ID>
+               <ToolTip>Zu setzender Ausgang</ToolTip>
+               <Default>1</Default>
+            </Literal>
+            <Literal>
+               <ID>value</ID>
+               <ToolTip>Boolscher Ausdruck</ToolTip>
+               <Default>true</Default>
+            </Literal>
+            <Literal>
+               <ID>time</ID>
+               <ToolTip>Zeit die der Ausgang gesetzt werden soll</ToolTip>
+               <Default>0.5</Default>
+            </Literal>
+         </Declarations>
+         <Code Language="KRL">
+            <![CDATA[PULSE ( $OUT[$output$], $value$, $time$ )$end$$selection$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>
+</CodeSnippets>
