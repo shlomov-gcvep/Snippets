@@ -9,7 +9,7 @@
          <Extensions>.xml .config .kxr</Extensions>
          <Scope>Content</Scope>
          <Description>Codeausschnitt ein Xml Tag</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* Kuka Roboter GmbH</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -39,7 +39,7 @@
          <Extensions>.xml .config .kxr</Extensions>
          <Scope>Content</Scope>
          <Description>Codeausschnitt ein Xml-Kommentar</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* Kuka Roboter GmbH</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -74,7 +74,7 @@
          <Scope>Attribute</Scope>
          
          <Description>Codeausschnitt ein Attribut</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* Kuka Roboter GmbH</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -109,7 +109,7 @@
          <Extensions>.xml .config .kxr</Extensions>
          <Scope>Attribute</Scope>
          <Description>Codeausschnitt ein das Attribut um ein Schema anzugeben</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -125,10 +125,57 @@
             </Literal>
          </Declarations>
          <Code Language="Xml">
-            <![CDATA[xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$schemaNameOrPath$.xsd"]]>
+            <![CDATA[xmlns:xsi="http://gberman.narod.ru/xmlarticles/schema0/start.html" xmlns:xsd="$schemaNameOrPath$.xsd"]]>
          </Code>
       </Snippet>
    </CodeSnippet>
+   
+   
+   <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>uiText</Title>
+         <Text>uiText</Text>
+         <Shortcut>uiText</Shortcut>
+         <Shortcut>UiText</Shortcut>
+         <Extensions>.xml .config .kxr</Extensions>
+         <Scope>Content</Scope>
+         <Description> </Description>
+         <Author>* WGS</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+
+      <FileExtensions/>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>key</ID>
+               <ToolTip>key</ToolTip>
+               <Default>key</Default>
+            </Literal>
+            <Literal>
+               <ID>translation</ID>
+               <ToolTip>translation</ToolTip>
+               <Default>перевод</Default>
+            </Literal>			
+         </Declarations>
+         <Code Language="Xml">
+            <![CDATA[    <uiText key="$key$">
+	<text>$translation$</Text>
+	</uiText>]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 </CodeSnippets>
    
 

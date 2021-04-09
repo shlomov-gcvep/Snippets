@@ -10,7 +10,7 @@
          <Extensions>.src .sub .dat</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Codeausschnitt für eine Interrupt Vereinbarung</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -20,12 +20,12 @@
             <Literal>
                <ID>priority</ID>
                <ToolTip>Die Priorität des Interrupts</ToolTip>
-               <Default>21</Default>
+               <Default>1,2,4-39,81-128</Default>
             </Literal>
             <Literal>
                <ID>condition</ID>
                <ToolTip>Die Bedingung für die der Interrupt ausgelöst werden soll</ToolTip>
-               <Default>$IN[1] == TRUE</Default>
+               <Default>$IN[1]</Default>
             </Literal>
             <Literal>
                <ID>call</ID>

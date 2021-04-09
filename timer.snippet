@@ -10,7 +10,7 @@
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Codeausschnitt für das starten eines Timers</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -20,12 +20,11 @@
             <Literal>
                <ID>timerIndex</ID>
                <ToolTip>Der Index des zu startendes Timers</ToolTip>
-               <Default>1</Default>
+               <Default>Index</Default>
             </Literal>
          </Declarations>
          <Code Language="KRL">
-            <![CDATA[WAIT SEC 0
-$TIMER_STOP[$timerIndex$] = FALSE$end$]]>
+            <![CDATA[$TIMER_STOP[$timerIndex$] = FALSE$end$]]>
          </Code>
       </Snippet>
    </CodeSnippet>
@@ -40,7 +39,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Timer TOF ON</Description>
-         <Author>WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -50,7 +49,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
             <Literal>
                <ID>timerIndex</ID>
                <ToolTip>Der Index des zu startendes Timers</ToolTip>
-               <Default>1</Default>
+               <Default>Index</Default>
             </Literal>
 			<Literal>
                <ID>time</ID>
@@ -74,7 +73,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Timer TOF ON</Description>
-         <Author>WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -84,7 +83,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
             <Literal>
                <ID>timerIndex</ID>
                <ToolTip>Der Index des zu startendes Timers</ToolTip>
-               <Default>1</Default>
+               <Default>Index</Default>
             </Literal>
 			<Literal>
                <ID>time</ID>
@@ -109,7 +108,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Timer TOF OFF</Description>
-         <Author>WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -119,7 +118,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
             <Literal>
                <ID>timerIndex</ID>
                <ToolTip>Der Index des zu startendes Timers</ToolTip>
-               <Default>1</Default>
+               <Default>Index</Default>
             </Literal>
          </Declarations>
          <Code Language="KRL">
@@ -138,7 +137,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction InDeclarationList</Scope>
          <Description>Timer TON OFF</Description>
-         <Author>WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -148,7 +147,7 @@ $TIMER_STOP[$timerIndex$] = FALSE$end$]]>
             <Literal>
                <ID>timerIndex</ID>
                <ToolTip>Der Index des zu startendes Timers</ToolTip>
-               <Default>1</Default>
+               <Default>Index</Default>
             </Literal>
          </Declarations>
          <Code Language="KRL">

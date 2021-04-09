@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeSnippets>
 
-   <CodeSnippet Format="1.0.0">
+   <!--<CodeSnippet Format="1.0.0">
       <Header>
          <Title>SLIN(Inline) - Snippet</Title>
          <Text>slini</Text>
@@ -11,7 +11,7 @@
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Codeausschnitt für eine SLIN-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* Kuka Roboter GmbH</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -29,7 +29,7 @@
                <Default>CPDAT1</Default>
             </Literal>
          </Declarations>
-         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>-->        
          <!--<Macro Type="Completion">
          <![CDATA[
 public void Execute(IInsertionContext context, Snippet snippet)
@@ -90,7 +90,7 @@ private IList<ChangeBase> CreateChanges(Snippet snippet, IKrlModule module)
 }
       ]]>
          </Macro>-->
-         <Code Language="KRL">
+         <!--<Code Language="KRL">
             <![CDATA[;FOLD SLIN $point$ Vel=2 m/s $ldat$ Tool[1]:Toolo Base[0] ;%{PE}
 ;FOLD Parameters ;%{h}
 ;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.spline; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=2; Kuka.VelocityFieldEnabled=True; Kuka.MovementParameterFieldEnabled=True; IlfCommand=SLIN
@@ -99,5 +99,5 @@ SLIN X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BA
 ;ENDFOLD
 ]]></Code>
       </Snippet>
-   </CodeSnippet>
+   </CodeSnippet>-->
 </CodeSnippets>

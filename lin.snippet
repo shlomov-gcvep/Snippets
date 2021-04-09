@@ -11,7 +11,7 @@
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>LIN-Bewegung</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -59,7 +59,7 @@ LIN X$point$
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>LIN_cont-Bewegung</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -107,7 +107,7 @@ LIN X$point$ C_DIS C_DIS
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Codeausschnitt für eine SLIN-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -126,66 +126,6 @@ LIN X$point$ C_DIS C_DIS
             </Literal>
          </Declarations>
          <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
-         <!--<Macro Type="Completion">
-         <![CDATA[
-public void Execute(IInsertionContext context, Snippet snippet)
-{
-   var editor = context.GetService<TextEditor>() as KrlEditor;
-   if (editor == null)
-      return;
-
-   var refactoringManager = context.GetService<IRefactoringManager>();
-   if (refactoringManager == null)
-      return;
-
-   var module = editor.KrlModelManager.GetModule(editor.FilePath);
-   if (!module.HasDatFile())
-      return;
-
-   var changes = CreateChanges(snippet, module);
-   if (changes.Any())
-      refactoringManager.MakeChanges(changes, true, true);
-}
-
-private IList<ChangeBase> CreateChanges(Snippet snippet, IKrlModule module)
-{
-   var changes = new List<ChangeBase>();
-   var line = module.DeclarationList.EndDat.Line - 1;
-
-   var pointName = snippet.GetElementValue("point");
-   if (string.IsNullOrEmpty(pointName))
-      return changes;
-
-   var internalPointName = string.Format("X{0}", pointName);
-   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalPointName))
-   {
-      var pointDeclaration = string.Format("DECL E6POS {0}={1}", internalPointName, BaseDataType.E6Pos.GetDefaultValue());
-      changes.Add(new InsertLineChange(module.DatPath, line, pointDeclaration, true));
-   }
-
-   var fdatName = snippet.GetElementValue("fdat", pointName);
-   var internalfdatName = string.Format("F{0}", fdatName);
-   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalfdatName))
-   {
-      var fdat = string.Format("DECL FDAT {0}={{TOOL_NO 0,BASE_NO 0,IPO_FRAME #BASE,POINT2[] \" \"}}", internalfdatName);
-      changes.Insert(0, new InsertLineChange(module.DatPath, line, fdat, true));
-   }
-
-   var ldatName = snippet.GetElementValue("ldat", pointName);
-   var internalLdatName = string.Format("L{0}", ldatName);
-   if (!module.DeclarationList.SymbolTable.ContainsDeclaration(internalLdatName))
-   {
-      var pdat =
-         string.Format(
-            "DECL LDAT {0}={{ ACC 100.000,APO_DIST 100.000,APO_FAC 50.0000,AXIS_VEL 100.000,AXIS_ACC 100.000,ORI_TYP #VAR,CIRC_TYP #BASE,JERK_FAC 50.0000,GEAR_JERK 50.0000,EXAX_IGN 0}}",
-            internalLdatName);
-      changes.Insert(0, new InsertLineChange(module.DatPath, line, pdat, true));
-   }
-
-   return changes;
-}
-      ]]>
-         </Macro>-->
          <Code Language="KRL">
             <![CDATA[;FOLD SLIN $point$ Vel=2 m/s $ldat$ Tool[1]:Toolo Base[0] ;%{PE}
 ;FOLD Parameters ;%{h}
@@ -208,7 +148,7 @@ SLIN X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2(F$point$), $BA
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Codeausschnitt für eine SCIRC-Bewegung die durch ein Inlineform bearbeitet werden kann</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -255,7 +195,7 @@ SCIRC X$helpPoint$, X$point$ WITH $VEL = SVEL_CP(2.0, , L$ldat$), $TOOL = STOOL2
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>CIRC-formulyar</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -309,7 +249,7 @@ CIRC X$helpPoint$, X$point$
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>CIRC cont-formulyar</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -337,7 +277,6 @@ CIRC X$helpPoint$, X$point$
                <Default>2.00</Default>
             </Literal>
          </Declarations>
-         
          <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
          <Code Language="KRL">
             <![CDATA[;FOLD CIRC $helpPoint$ $point$ CONT Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.2.17,%MKUKATPBASIS,%CMOVE,%VCIRC,%P 1:CIRC, 2:$helpPoint$, 3:$point$, 4:C_DIS C_DIS, 6:$Vel$, 8:$ldat$
@@ -351,7 +290,6 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
          </Code>
       </Snippet>
    </CodeSnippet>  
-         
 
 
    <CodeSnippet Format="1.0.0">
@@ -364,7 +302,7 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Code snippet for PTP traffic that can be edited using the built-in form</Description>
-         <Author>Spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -386,10 +324,6 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
                <ToolTip>Vel</ToolTip>
                <Default>100</Default>
             </Literal>			
-			
-			
-			
-			
          </Declarations>
          <Macro Type="Completion">KukaRoboter.Editors.Krl.CreatePtpData, KukaRoboter.Editors</Macro>
          <Code Language="KRL">
@@ -406,7 +340,6 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
    </CodeSnippet>
 
 
-
   <CodeSnippet Format="1.0.0">
       <Header>
          <Title>PTP(Inline) - Snippet</Title>
@@ -417,7 +350,7 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Code snippet for PTP CONT traffic that can be edited using the built-in form</Description>
-         <Author>spizjeno WGS</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -452,51 +385,5 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
 	]]>
          </Code>
       </Snippet>
-   </CodeSnippet>
-
-
-   <CodeSnippet Format="1.0.0">
-      <Header>
-         <Title>PTP(Relative) - Snippet</Title>
-         <Text>ptprel</Text>
-         <Shortcut>ptprel</Shortcut>
-         <Shortcut>Ptprel</Shortcut>
-         <Shortcut>PTPREL</Shortcut>
-         <Extensions>.src .sub</Extensions>
-         <Scope>InFunction</Scope>
-         <Description>Codeausschnitt für eine relative PTP-Bewegung</Description>
-         <Author>Kuka Roboter GmbH</Author>
-         <SnippetTypes>
-            <SnippetType>Expansion</SnippetType>
-         </SnippetTypes>
-      </Header>
-      <Snippet>
-         <Declarations>
-            <Literal>
-               <ID>x</ID>
-               <ToolTip></ToolTip>
-               <Default>0</Default>
-            </Literal>
-
-            <Literal>
-               <ID>y</ID>
-               <ToolTip></ToolTip>
-               <Default>0</Default>
-            </Literal>
-
-            <Literal>
-               <ID>z</ID>
-               <ToolTip></ToolTip>
-               <Default>0</Default>
-            </Literal>
-
-         </Declarations>
-         <Code Language="KRL">
-            <![CDATA[PTP_REL{X $x$, Y $y$, Z $z$}$end$ ;#TOOL]]>
-         </Code>
-      </Snippet>
-   </CodeSnippet>
-
-
-   
+   </CodeSnippet>   
 </CodeSnippets>

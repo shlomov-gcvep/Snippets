@@ -13,7 +13,7 @@
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction</Scope>
          <Description>Codeausschnitt für eine Trigger-Distance Anweisung</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -23,22 +23,22 @@
             <Literal>
                <ID>switchpoint</ID>
                <ToolTip>switch on startpoint (0) or endpoint (1)</ToolTip>
-               <Default>switchpoint</Default>
+               <Default>0 or 1</Default>
             </Literal>
             <Literal>
                <ID>time</ID>
                <ToolTip>delay in milliseconds</ToolTip>
-               <Default>time</Default>
+               <Default>milliseconds</Default>
             </Literal>
             <Literal>
                <ID>instruction</ID>
                <ToolTip>value assignment, out instruction or subroutine call</ToolTip>
-               <Default>instruction</Default>
+               <Default>mm</Default>
             </Literal>
             <Literal>
                <ID>prio</ID>
                <ToolTip>priority for subfunction, optiomal, 1..39, 81..128 or -1 for selfdefined prio</ToolTip>
-               <Default>prio</Default>
+               <Default>-1,1-39,81-128</Default>
             </Literal>
          </Declarations>
          <Code Language="KRL"><![CDATA[TRIGGER WHEN DISTANCE = $switchpoint$ DELAY = $time$ DO $instruction$ PRIO = $prio$]]></Code>
@@ -58,7 +58,7 @@
          <Extensions>.src .sub</Extensions>
          <Scope>InFunction</Scope>
          <Description>Codeausschnitt für eine Trigger-Path Anweisung</Description>
-         <Author>Kuka Roboter GmbH</Author>
+         <Author>* WGS</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -73,17 +73,17 @@
             <Literal>
                <ID>time</ID>
                <ToolTip>delay in milliseconds</ToolTip>
-               <Default>time</Default>
+               <Default>millisecond</Default>
             </Literal>
             <Literal>
                <ID>instruction</ID>
                <ToolTip>value assignment, out instruction or subroutine call</ToolTip>
-               <Default>instruction</Default>
+               <Default>mm</Default>
             </Literal>
             <Literal>
                <ID>prio</ID>
                <ToolTip>priority for subfunction, optiomal, 1..39, 81..128 or -1 for selfdefined prio</ToolTip>
-               <Default>prio</Default>
+               <Default>-1,1-39,81-128</Default>
             </Literal>
          </Declarations>
          <Code Language="KRL"><![CDATA[TRIGGER WHEN PATH = $distance$ DELAY = $time$ DO $instruction$ PRIO = $prio$]]></Code>
