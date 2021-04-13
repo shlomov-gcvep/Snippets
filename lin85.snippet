@@ -4,14 +4,14 @@
    <CodeSnippet Format="1.0.0">
       <Header>
          <Title>LIN(Inline) - Snippet</Title>
-         <Text>lini83</Text>
-         <Shortcut>lini83</Shortcut>
-         <Shortcut>lini83</Shortcut>
-         <Shortcut>LINI83</Shortcut>
+         <Text>lini85</Text>
+         <Shortcut>lini85</Shortcut>
+         <Shortcut>lini85</Shortcut>
+         <Shortcut>LINI85</Shortcut>
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>LIN-Bewegung</Description>
-         <Author>* WGS83</Author>
+         <Author>* WGS85</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -37,18 +37,21 @@
          <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateLinData, KukaRoboter.Editors</Macro>        
          <Code Language="KRL">
 		 
-            <![CDATA[;FOLD LIN $point$ Vel=$Vel$ m/s $ldat$ Tool[0] Base[0];%{PE}%R 8.3.43,%MKUKATPBASIS,%CMOVE,%VLIN,%P 1:LIN, 2:$point$, 3:, 5:$Vel$, 7:$ldat$
-$BWDSTART=FALSE
-LDAT_ACT=L$ldat$
-FDAT_ACT=F$point$
-BAS(#CP_PARAMS,$Vel$)
-LIN X$point$ 
-;ENDFOLD$end$
-]]></Code>
+            <![CDATA[;FOLD LIN $point$ Vel=$Vel$ m/s $ldat$ Tool[0]:WeldTorch Base[0]:test1 ;%{PE}
+		;FOLD Parameters ;%{h}
+			;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=$Vel$; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=LIN
+		;ENDFOLD
+		$BWDSTART = FALSE
+		LDAT_ACT=L$ldat$
+		FDAT_ACT=F$point$
+		BAS(#CP_PARAMS,$Vel$)
+		SET_CD_PARAMS (0)
+		LIN X$point$
+	;ENDFOLD$end$]]></Code>
       </Snippet>
    </CodeSnippet>
    
-   
+<!--   
    <CodeSnippet Format="1.0.0">
       <Header>
          <Title>LIN_CONT(Inline) - Snippet</Title>
@@ -291,18 +294,18 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
       </Snippet>
    </CodeSnippet>  
 
-
+-->
    <CodeSnippet Format="1.0.0">
       <Header>
          <Title>PTP(Inline) - Snippet</Title>
-         <Text>ptpi83</Text> 
-         <Shortcut>ptpi83</Shortcut>
-         <Shortcut>Ptpi83</Shortcut>
-         <Shortcut>PTPI83</Shortcut>
+         <Text>ptpi85</Text> 
+         <Shortcut>ptpi85</Shortcut>
+         <Shortcut>Ptpi85</Shortcut>
+         <Shortcut>PTPI85</Shortcut>
          <Extensions>.src</Extensions>
          <Scope>InFunction</Scope>
          <Description>Code snippet for PTP traffic that can be edited using the built-in form</Description>
-         <Author>* WGS</Author>
+         <Author>* WGS85</Author>
          <SnippetTypes>
             <SnippetType>Expansion</SnippetType>
          </SnippetTypes>
@@ -327,19 +330,22 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
          </Declarations>
          <Macro Type="Completion">KukaRoboter.Editors.Krl.CreatePtpData, KukaRoboter.Editors</Macro>
          <Code Language="KRL">
-            <![CDATA[;FOLD PTP $point$ Vel=$Vel$ % $pdat$ Tool[0] Base[0];%{PE}%R 8.2.10,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:$point$, 3:, 5:$Vel$, 7:$pdat$
-   $BWDSTART=FALSE
-   PDAT_ACT=P$pdat$
-   FDAT_ACT=F$point$
-   BAS(#PTP_PARAMS,$Vel$)
-   PTP X$point$ 
-	;ENDFOLD$end$
-	]]>
+            <![CDATA[;FOLD PTP $point$ Vel=$Vel$ % $pdat$ Tool[0]:WeldTorch Base[0]:test1;%{PE}
+		;FOLD Parameters ;%{h}
+			;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=$point$; Kuka.BlendingEnabled=False; Kuka.MoveDataPtpName=$pdat$; Kuka.VelocityPtp=$Vel$; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=PTP
+		;ENDFOLD
+		$BWDSTART=FALSE
+		PDAT_ACT=P$pdat$
+		FDAT_ACT=F$point$
+		BAS(#PTP_PARAMS,$Vel$)
+		SET_CD_PARAMS (0)
+		PTP X$point$
+	;ENDFOLD$end$]]>
          </Code>
       </Snippet>
    </CodeSnippet>
 
-
+<!--
   <CodeSnippet Format="1.0.0">
       <Header>
          <Title>PTP(Inline) - Snippet</Title>
@@ -385,5 +391,5 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
 	]]>
          </Code>
       </Snippet>
-   </CodeSnippet>   
+   </CodeSnippet>  --> 
 </CodeSnippets>
