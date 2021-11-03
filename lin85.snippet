@@ -406,4 +406,66 @@ CIRC X$helpPoint$, X$point$ C_DIS C_DIS
          </Code>
       </Snippet>
    </CodeSnippet>  --> 
+
+
+
+     <CodeSnippet Format="1.0.0">
+      <Header>
+         <Title>CIRC_CONT(Inline) - Snippet</Title>
+         <Text>circi_cont85</Text> 
+         <Shortcut>circi_cont85</Shortcut>
+         <Shortcut>Circi_cont85</Shortcut>
+         <Shortcut>CIRCI_CONT85</Shortcut>
+         <Extensions>.src</Extensions>
+         <Scope>InFunction</Scope>
+         <Description>CIRC cont-formulyar</Description>
+         <Author>* WGS85</Author>
+         <SnippetTypes>
+            <SnippetType>Expansion</SnippetType>
+         </SnippetTypes>
+      </Header>
+      <Snippet>
+         <Declarations>
+            <Literal>
+               <ID>helpPoint</ID>
+               <ToolTip>Hilfspunkt der für eine SCIRC-Bewegung benötigt wird</ToolTip>
+               <Default>e6p_P1</Default>
+            </Literal>
+            <Literal>
+               <ID>point</ID>
+               <ToolTip>Punkt zu dem in einer SCIRC-Bewegung gefahren werden soll</ToolTip>
+               <Default>e6p_P2</Default>
+            </Literal>
+            <Literal>
+               <ID>ldat</ID>
+               <ToolTip>Daten zu Punkt</ToolTip>
+               <Default>D_P2</Default>
+            </Literal>
+			<Literal>
+               <ID>Vel</ID>
+               <ToolTip>Vel</ToolTip>
+               <Default>2.00</Default>
+            </Literal>
+         </Declarations>
+         <Macro Type="Completion">KukaRoboter.Editors.Krl.CreateCircData, KukaRoboter.Editors</Macro>
+         <Code Language="KRL">
+            <![CDATA[;FOLD CIRC $helpPoint$ $point$ CONT Vel=$Vel$ m/s $ldat$ Tool[0] Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=$point$; Kuka.HelpPointName=$helpPoint$; Kuka.BlendingEnabled=True; Kuka.MoveDataName=$ldat$; Kuka.VelocityPath=$Vel$; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=CIRC
+;ENDFOLD
+$BWDSTART = FALSE
+LDAT_ACT = L$ldat$
+FDAT_ACT = F$point$
+BAS(#CP_PARAMS, $Vel$)
+SET_CD_PARAMS (0)
+CIRC X$helpPoint$, X$point$ C_Dis C_Dis
+;ENDFOLD$end$]]>
+         </Code>
+      </Snippet>
+   </CodeSnippet>  
+
+
+
+
+
 </CodeSnippets>
